@@ -91,7 +91,6 @@ canvas {
         <div id="result">
             <p>Your artwork has been created.</p>
             <img id="preview">
-            <button onclick="downloadImage()">Download Image</button>
         </div>
     </div>
 </div>
@@ -138,7 +137,7 @@ function loadQuestion() {
         const input = document.createElement("input");
         input.type = "text";
         input.placeholder = "Type one word";
-        input.style.width = "100%";
+        input.style.width = "92%";
         input.style.padding = "16px";
         input.style.fontSize = "16px";
         input.style.marginBottom = "12px";
@@ -146,7 +145,7 @@ function loadQuestion() {
         input.style.border = "1px solid #ccc";
 
         const btn = document.createElement("button");
-        btn.textContent = "Generate";
+        btn.textContent = "Create Artwork";
         btn.onclick = () => {
             customWord = input.value || " ";
             current++;
@@ -200,21 +199,7 @@ function generateArtwork() {
 
         ctx.restore();
     }
-function downloadImage() {
-    canvas.toBlob(function(blob) {
-        const url = URL.createObjectURL(blob);
 
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "thesis-artwork.png";
-
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        URL.revokeObjectURL(url);
-    }, "image/png");
-}
 
     // Word Integration
     if (customWord.trim() !== "") {
